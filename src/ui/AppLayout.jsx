@@ -8,17 +8,22 @@ function AppLayout() {
   const isLoading = navigation.state === "loading";
 
   return (
-    <div className="layout">
-      <Header />
-
+    <>
       {isLoading && <LoadingIndicator />}
+      <div
+        className={`layout grid h-screen grid-rows-[auto_1fr] ${isLoading && "blur-sm"}`}
+      >
+        <Header />
 
-      <main className="min-h-screen">
-        <Outlet />
-      </main>
+        <div>
+          <main className="mx-auto max-w-3xl">
+            <Outlet />
+          </main>
+        </div>
 
-      <CartOverview />
-    </div>
+        <CartOverview />
+      </div>
+    </>
   );
 }
 
