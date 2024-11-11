@@ -2,6 +2,7 @@ import Header from "./Header";
 import CartOverview from "../features/cart/CartOverview";
 import { Outlet, useNavigation } from "react-router-dom";
 import LoadingIndicator from "./LoadingIndicator";
+import { useSelector } from "react-redux";
 
 function AppLayout() {
   const navigation = useNavigation();
