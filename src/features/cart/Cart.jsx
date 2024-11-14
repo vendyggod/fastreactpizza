@@ -1,8 +1,8 @@
 import Button from "../../ui/Button";
-import CartItem from "./CartItem";
 import { useDispatch, useSelector } from "react-redux";
 import { clearCart, getCart } from "./cartSlice";
 import EmptyCart from "./EmptyCart";
+import CartItemList from "./CartItemList";
 
 function Cart() {
   const username = useSelector((state) => state.user.username);
@@ -21,11 +21,7 @@ function Cart() {
         <h2 className="text-xl font-semibold">Your cart, {username}</h2>
       </div>
 
-      <ul className="mb-10 divide-y divide-stone-200 border-b">
-        {cart.map((item) => (
-          <CartItem item={item} key={item.pizzaId} />
-        ))}
-      </ul>
+      <CartItemList cart={cart} />
 
       <div className="flex items-center justify-between">
         <Button type="clear" onClick={handleClearCart}>
