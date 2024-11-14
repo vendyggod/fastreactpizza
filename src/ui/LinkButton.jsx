@@ -4,9 +4,13 @@ function LinkButton({ children, to }) {
   const navigate = useNavigate();
   const className = "text-sm text-blue-500 hover:text-blue-600 hover:underline";
 
+  function handleClick() {
+    navigate(-1);
+  }
+
   if (to === "-1")
     return (
-      <button className={className} onClick={() => navigate(-1)}>
+      <button className={className} onClick={handleClick}>
         {children}
       </button>
     );
