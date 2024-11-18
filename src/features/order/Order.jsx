@@ -8,6 +8,7 @@ import {
 } from "../../utils/helpers";
 import { useEffect } from "react";
 import OrderItemList from "./OrderItemList";
+import UpdateOrder from "./UpdateOrder";
 
 function Order() {
   const order = useLoaderData();
@@ -72,6 +73,8 @@ function Order() {
           To pay on delivery: {formatCurrency(orderPrice + priorityPrice)}
         </p>
       </div>
+
+      {!order.priority && <UpdateOrder />}
     </div>
   );
 }
